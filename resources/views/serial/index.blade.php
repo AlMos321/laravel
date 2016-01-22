@@ -8,7 +8,7 @@
             width: 145px;
             position: relative;
             display: inline-block;
-            margin-left: 10px;
+            margin-left: 25px;
             margin-bottom: 5px;
             cursor: pointer;
         }

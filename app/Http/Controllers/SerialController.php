@@ -36,7 +36,7 @@ class SerialController extends Controller
      */
     public function getSerials()
     {
-        $serial = Serial::paginate(10);
+        $serial = Serial::paginate(20);
         return view('serial.index', ['users' => $serial]);
     }
 

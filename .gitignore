@@ -6,4 +6,5 @@ Homestead.json
 .idea
 /public/uploads/serial/resize/*
 /public/uploads/serial/icon/*
+!/public/uploads/serial/icon/example.jpg
 /public/uploads/serial/originals/*
