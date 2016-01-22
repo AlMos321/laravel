@@ -20,10 +20,10 @@ return [
             'title' => 'Description'
         ],
         'date_start' => [
-            'title' => 'Production'
+            'title' => 'Date Start'
         ],
         'date_end' => [
-            'title' => 'Producer'
+            'title' => 'Date End'
         ],
         'serial_id' => [
             'title' => 'Serial'

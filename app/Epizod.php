@@ -8,24 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class Season extends Model implements SluggableInterface
+class Epizod extends Model implements SluggableInterface
 {
     use SluggableTrait;
 
+    public $table = "epizodes";
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-         'country', 'count_epizodes', 'date_start', 'date_end', 'description'
+        'name', 'description', 'date_start', 'images', 'directed', 'production', 'producer', 'running_time'
     ];
 
 
     protected $sluggable = [
-        'build_from' => ['serial.name', 'id'] ,
+        'build_from' => ['name'] ,
         'save_to'    => 'slug',
     ];
+
 
 
 }
