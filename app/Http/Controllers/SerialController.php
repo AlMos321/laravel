@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Serial;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class SerialController extends Controller
 {

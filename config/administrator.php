@@ -21,7 +21,7 @@ return array(
 	 *
 	 *  @type array
 	 */
-	'middleware' => array('web'),
+	'middleware' => array('web', 'admin'),
 
 	/**
 	 * Page title
@@ -65,7 +65,7 @@ return array(
 	 * 		'Analytics' => array('E-Commerce' => 'page.ecommerce.analytics'),
 	 *	)
 	 */
-	'menu' => array('users', 'serials', 'seasons'),
+	'menu' => array('users', 'serials', 'seasons' ),
 
 	/**
 	 * The permission option is the highest-level authentication check that lets you define a closure that should return true if the current user
