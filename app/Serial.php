@@ -27,4 +27,12 @@ class Serial extends Model implements SluggableInterface
         'save_to'    => 'slug',
     ];
 
+    /**
+     * Get the comments for the blog post.
+     */
+    public function seasons()
+    {
+        return $this->hasMany('App\Season');
+    }
+
 }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class Serial extends Model implements SluggableInterface
+class Season extends Model implements SluggableInterface
 {
     use SluggableTrait;
 
