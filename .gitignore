@@ -4,3 +4,6 @@ Homestead.yaml
 Homestead.json
 .env
 .idea
+/public/uploads/serial/resize/*
+/public/uploads/serial/icon/*
+/public/uploads/serial/originals/*

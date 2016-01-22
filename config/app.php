@@ -160,6 +160,7 @@ return [
          * Instalation extra
          */
         'Cviebrock\EloquentSluggable\SluggableServiceProvider',
+        'Frozennode\Administrator\AdministratorServiceProvider',
 
     ],
 
