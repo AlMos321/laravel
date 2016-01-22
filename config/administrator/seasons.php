@@ -28,11 +28,18 @@ return [
         'serial_id' => [
             'title' => 'Serial'
         ],
+        'number' => [
+            'title' => 'Number'
+        ],
     ],
     /**
      * The editable fields
      */
     'edit_fields' => [
+        'number' => [
+            'type' => 'text',
+            'title' => 'Number',
+        ],
         'country' => [
             'type' => 'text',
             'title' => 'Country'

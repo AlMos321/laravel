@@ -4,13 +4,14 @@
 
     <style>
         .wind{
-            height: 160px;
+            height: 20px;
             width: 145px;
             position: relative;
             display: inline-block;
             margin-left: 10px;
             margin-bottom: 5px;
             cursor: pointer;
+            left: 40%;
         }
         .wind-img:hover{
             border: 2px solid #f39a5a;
@@ -33,6 +34,12 @@
         .wind-name:hover{
             text-decoration: underline;
         }
+        .serial{
+            align-content: center;
+        }
+        .description{
+            text-align: center;
+        }
     </style>
 
     <div class="container">
@@ -41,17 +48,21 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">dd</div>
                     <div class="panel-body">
-                        <div class="row">
-                            @foreach ($serial as $ser)
-
-                                    <div class="wind">
-                                        <div class="wind-img" style='background-image: url("/uploads/serial/icon/{{$ser->images}}");'></div>
-                                        <div class="wind-name">{{$ser->name}}</div>
-                                    </div>
-
-                            @endforeach
+                        <div class="serial">
+                            <div class="wind">
+                                <div class="wind-img" style='background-image: url("/uploads/serial/icon/{{$serial->images}}");'></div>
+                                <div class="wind-name">{{$serial->name}}</div>
+                            </div>
+                            <div class="description bg-info">{{$serial->description}}</div>
                         </div>
-                        {{--{{$users->render()}}--}}
+                            <hr>
+                            @foreach ($seasons as $season)
+                                <div class="wind">
+                                    <div class="wind-name">Seazon {{$season->number}}</div>
+                                    <div class="description bg-info">{{$season->description}}</div>
+                                </div>
+                                <br>
+                            @endforeach
                     </div>
                 </div>
             </div>

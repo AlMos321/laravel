@@ -48,6 +48,12 @@ class SerialController extends Controller
     public function getSerialBySlug($slug)
     {
         $serial = DB::select('select * from serials WHERE slug = ?', [$slug]);
-        return view('serial.serial', ['serial' => $serial]);
+        if (isset($serial[0])){
+            $season = $comments = Serial::find($serial[0]->id)->seasons()->orderBy('number')->get();
+            $serial = $serial[0];
+        } else {
+            throw new \Exception('Not Found.');
+        }
+        return view('serial.serial', ['serial' => $serial, 'seasons' => $season]);
     }
 }
