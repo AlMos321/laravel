@@ -53,7 +53,7 @@ class SerialController extends Controller
             $season = $comments = Serial::find($serial[0]->id)->seasons()->orderBy('number')->get();
             $serial = $serial[0];
         } else {
-            throw new \Exception('Not Found.');
+            abort(404);
         }
         return view('serial.serial', ['serial' => $serial, 'seasons' => $season]);
     }
