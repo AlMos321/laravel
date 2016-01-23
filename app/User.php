@@ -29,7 +29,7 @@ class User extends Authenticatable
      */
     public static $rules = array(
         'name' => 'required',
-        'email' => 'required',
+        'email' => 'required|email',
         'password' => 'required',
     );
 }
