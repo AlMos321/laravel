@@ -10,6 +10,14 @@ return [
         'id' => [
             'title' => '#'
         ],
+        'number' => [
+            'title' => 'Number'
+        ],
+        'serial_id' => [
+            'title' => 'Serial',
+            'relationship' => 'serial',
+            'select' => '(:table).name',
+        ],
         'count_epizdes' => [
             'title' => 'Epizodes'
         ],
@@ -25,20 +33,19 @@ return [
         'date_end' => [
             'title' => 'Date End'
         ],
-        'serial_id' => [
-            'title' => 'Serial'
-        ],
-        'number' => [
-            'title' => 'Number'
-        ],
     ],
     /**
      * The editable fields
      */
     'edit_fields' => [
+        'serial' => [
+            'type' => 'relationship',
+            'title' => 'Serial',
+            'name_field' => 'name',
+        ],
         'number' => [
             'type' => 'text',
-            'title' => 'Number',
+            'title' => 'Number of the season',
         ],
         'country' => [
             'type' => 'text',
@@ -46,7 +53,7 @@ return [
         ],
         'count_epizdes' => [
             'type' => 'text',
-            'title' => 'Epizodes',
+            'title' => 'Number of episodes',
         ],
         'date_start' => [
             'type' => 'date',
@@ -57,12 +64,8 @@ return [
             'title' => 'End Date',
         ],
         'description' => [
-            'type' => 'text',
+            'type' => 'textarea',
             'title' => 'Description',
-        ],
-        'serial_id' => [
-            'type' => 'text',
-            'title' => 'Serial',
         ],
     ],
     /**

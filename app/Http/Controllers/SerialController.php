@@ -32,26 +32,26 @@ class SerialController extends Controller
     }
 
     /**
-     * Show a list of all of the application's selials.
+     * Show a list of all selials.
      *
      * @return Response
      */
     public function getSerials()
     {
-        $serial = Serial::paginate(20);
-        return view('serial.index', ['users' => $serial]);
+        $serials = Serial::paginate(20);
+        return view('serial.index', ['serials' => $serials]);
     }
 
 
     /**
-     * Show a application's selial and seasons.
+     * Show selial and seasons of serial.
      *
      * @return Response
      */
     public function getSerialBySlug($slug)
     {
         $serial = DB::select('select * from serials WHERE slug = ?', [$slug]);
-        if (isset($serial[0])){
+        if (isset($serial[0])) {
             $seasons = Serial::find($serial[0]->id)->seasons()->orderBy('number')->get();
             $serial = $serial[0];
         } else {
@@ -66,16 +66,16 @@ class SerialController extends Controller
             }
         }
 
-        $epizodes = DB::table('epizodes')->whereIn('season_id', $idSesons )->get();
+        $epizodes = DB::table('epizodes')->whereIn('season_id', $idSesons)->orderBy('number')->get();
         $arrayEpizodes = [];
-        foreach ($epizodes as $epizod){
+        foreach ($epizodes as $epizod) {
             $arrayEpizodes[$epizod->season_id][] = $epizod;
         }
         return view('serial.serial', ['serial' => $serial, 'seasons' => $seasons, 'epizodes' => $arrayEpizodes]);
     }
 
     /**
-     * Show epizod.
+     * Show epizod
      *
      * @return Response
      */
@@ -83,7 +83,7 @@ class SerialController extends Controller
     {
         $epizod = DB::select('select * from epizodes WHERE slug = ?', [$slug]);
 
-        if (isset($epizod[0])){
+        if (isset($epizod[0])) {
             $epizod = $epizod[0];
         } else {
             abort(404);

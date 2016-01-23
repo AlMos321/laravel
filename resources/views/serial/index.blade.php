@@ -42,16 +42,16 @@
                     <div class="panel-heading">Welcome - Serial</div>
                     <div class="panel-body">
                         <div class="row">
-                        @foreach ($users as $user)
-                            <a href="serial/{{$user->slug}}">
+                        @foreach ($serials as $serial)
+                            <a href="serial/{{$serial->slug}}">
                             <div class="wind">
-                                <div class="wind-img" style='background-image: url("/uploads/serial/icon/{{$user->images}}");'></div>
-                                <div class="wind-name">{{$user->name}}</div>
+                                <div class="wind-img" style='background-image: url("/uploads/serial/icon/{{$serial->images}}");'></div>
+                                <div class="wind-name">{{$serial->name}}</div>
                             </div>
                             </a>
                         @endforeach
                         </div>
-                        {{$users->render()}}
+                        {{$serials->render()}}
                     </div>
                 </div>
             </div>

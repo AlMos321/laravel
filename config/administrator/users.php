@@ -17,7 +17,7 @@ return [
             'title' => 'Email'
         ],
         'is_admin' => [
-            'title' => 'Email'
+            'title' => 'Is admin'
         ],
     ],
     /**
@@ -37,7 +37,7 @@ return [
             'title' => 'Password',
         ],
         'is_admin' => [
-            'type' => 'text',
+            'type' => 'bool',
             'title' => 'Is admin'
         ],
     ],

@@ -8,3 +8,8 @@ Homestead.json
 /public/uploads/serial/icon/*
 !/public/uploads/serial/icon/example.jpg
 /public/uploads/serial/originals/*
+
+/public/uploads/epizodes/resize/*
+/public/uploads/epizodes/icon/*
+!/public/uploads/epizodes/icon/example.jpg
+/public/uploads/epizodes/originals/*

@@ -16,6 +16,7 @@ class CreateEpizodesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
+            $table->integer('number');
             $table->string('images')->nullable();
             $table->string('producer')->nullable();
             $table->string('directed')->nullable();

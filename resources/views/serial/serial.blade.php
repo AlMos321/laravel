@@ -46,7 +46,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">dd</div>
+                    <div class="panel-heading">Serial</div>
                     <div class="panel-body">
                         <div class="serial">
                             <div class="wind">
@@ -59,17 +59,13 @@
                         @foreach ($seasons as $season)
                             <div class="wind">
                                 <div class="wind-name">Seazon {{$season->number}}</div>
-
                                 <?php if(isset($epizodes[$season->id])){ ?>
-
                                     @foreach ($epizodes[$season->id] as $epizod)
                                         <a href="epizod/{{$epizod->slug}}">
-                                            <div class="description bg-info">Epizod {{$epizod->id}}</div>
+                                            <div class="description bg-info">Epizod {{$epizod->number}}</div>
                                         </a>
                                     @endforeach
-
                                 <?php }?>
-
                             </div>
                             <br>
                         @endforeach

@@ -12,13 +12,14 @@ class Serial extends Model implements SluggableInterface
 {
     use SluggableTrait;
 
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'country', 'production', 'producer', 'actors', 'description', 'images', 'released'
+        'name', 'country', 'production', 'producer', 'actors', 'description', 'images', 'released',
     ];
 
 
@@ -34,5 +35,13 @@ class Serial extends Model implements SluggableInterface
     {
         return $this->hasMany('App\Season');
     }
+
+    /**
+     * Validation rules
+     */
+    public static $rules = array(
+        'name' => 'required',
+        'released' => 'date'
+    );
 
 }

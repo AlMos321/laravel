@@ -3,7 +3,6 @@ return [
     'title' => 'Epizod',
     'single' => 'Epizod',
     'model' => 'App\Epizod',
-
     /**
      * The display columns
      */
@@ -14,6 +13,10 @@ return [
         'name' => [
             'title' => 'Epizode Name'
         ],
+        'number' => [
+            'type' => 'text',
+            'title' => 'Epizod Number'
+        ],
         'description' => [
             'title' => 'Description'
         ],
@@ -21,7 +24,9 @@ return [
             'title' => 'Date Start'
         ],
         'images' => [
-            'title' => 'Images'
+            'title' => 'Images',
+            'type' => 'image',
+            'output' => '<img src="/uploads/epizodes/icon/(:value)" height="100" />',
         ],
         'directed' => [
             'title' => 'Directer'
@@ -33,29 +38,43 @@ return [
             'title' => 'Running Time'
         ],
         'season_id' => [
-            'title' => 'Season'
+            'title' => 'Season',
+            'relationship' => 'season',
+            'select' => '(:table).number',
         ],
     ],
     /**
      * The editable fields
      */
     'edit_fields' => [
+        'season' => [
+            'type' => 'relationship',
+            'title' => 'Season',
+            'name_field' => 'number',
+        ],
         'name' => [
             'type' => 'text',
-            'title' => 'Epizode Name'
+            'title' => 'Epizod Name'
         ],
-        'description' => [
+        'number' => [
             'type' => 'text',
-            'title' => 'Description'
+            'title' => 'Epizod Number'
         ],
         'date_start' => [
-            'type' => 'text',
+            'type' => 'date',
             'title' => 'Date Start'
         ],
-        'images' => [
-            'type' => 'text',
-            'title' => 'Images'
-        ],
+        'images' => array(
+            'title' => 'Image (1200 x 1314)',
+            'type' => 'image',
+            'naming' => 'random',
+            'location' => public_path() . '/uploads/epizodes/originals/',
+            'size_limit' => 2,
+            'sizes' => array(
+                array(1200, 1314, 'crop', public_path() . '/uploads/epizodes/resize/', 100),
+                array(150, 145, 'landscape', public_path() . '/uploads/epizodes/icon/', 100),
+            )
+        ),
         'directed' => [
             'type' => 'text',
             'title' => 'Directer'
@@ -68,9 +87,9 @@ return [
             'type' => 'time',
             'title' => 'Running Time'
         ],
-        'season_id' => [
-            'type' => 'text',
-            'title' => 'Season'
+        'description' => [
+            'type' => 'textarea',
+            'title' => 'Description'
         ],
     ],
     /**
@@ -85,6 +104,12 @@ return [
         ],
         'name' => [
             'title' => 'Epizod Name',
+        ],
+        'number' => [
+            'title' => 'Epizod Number',
+        ],
+        'season_id' => [
+            'title' => 'Season id',
         ],
     ],
 ];

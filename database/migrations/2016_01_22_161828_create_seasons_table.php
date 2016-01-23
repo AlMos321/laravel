@@ -14,13 +14,14 @@ class CreateSeasonsTable extends Migration
     {
         Schema::create('seasons', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('serial_id')->unsigned();
+            $table->foreign('serial_id')->references('id')->on('serials')->onDelete('cascade');
             $table->integer('number');
-            $table->integer('count_epizdes');
+            $table->integer('count_epizdes')->nullable();
             $table->string('country')->nullable();
             $table->string('description')->nullable();
             $table->date('date_start')->nullable();
             $table->date('date_end')->nullable();
-            $table->string('serial_id');
             $table->timestamps();
         });
     }

@@ -46,11 +46,11 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Epizos - {{$epizod->name}}</div>
+                    <div class="panel-heading">Epizod - {{$epizod->name}}</div>
                     <div class="panel-body">
                         <div class="serial">
                             <div class="wind">
-                                <div class="wind-img" style='background-image: url("/uploads/serial/icon/{{$epizod->images}}");'></div>
+                                <div class="wind-img" style='background-image: url("/uploads/epizodes/icon/{{$epizod->images}}");'></div>
                                 <div class="wind-name"><b>Epizod name:</b>{{$epizod->name}}</div>
                             </div>
                             <div class="description bg-info"><b>Description:</b> {{$epizod->description}}</div>

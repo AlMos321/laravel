@@ -81,8 +81,8 @@ return [
             )
         ),
         'released' => [
-            'type' => 'text',
-            'title' => 'Released(year)',
+            'type' => 'date',
+            'title' => 'Released',
         ],
     ],
     /**
