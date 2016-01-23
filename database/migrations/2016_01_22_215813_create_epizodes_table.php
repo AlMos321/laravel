@@ -21,7 +21,8 @@ class CreateEpizodesTable extends Migration
             $table->string('producer')->nullable();
             $table->string('directed')->nullable();
             $table->time('running_time')->nullable();
-            $table->integer('season_id');
+            $table->integer('season_id')->unsigned();
+            $table->foreign('season_id')->references('id')->on('seasons')->onDelete('cascade');
             $table->integer('date_start');
             $table->timestamps();
         });
