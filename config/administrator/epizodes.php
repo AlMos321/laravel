@@ -42,11 +42,21 @@ return [
             'relationship' => 'season',
             'select' => '(:table).number',
         ],
+        'serial_id' => [
+            'title' => 'Season',
+            'relationship' => 'serial',
+            'select' => '(:table).name',
+        ],
     ],
     /**
      * The editable fields
      */
     'edit_fields' => [
+        'serial' => [
+            'type' => 'relationship',
+            'title' => 'Serila Name',
+            'name_field' => 'name',
+        ],
         'season' => [
             'type' => 'relationship',
             'title' => 'Season',

@@ -37,6 +37,14 @@ class Serial extends Model implements SluggableInterface
     }
 
     /**
+     * Get seasins for serial.
+     */
+    public function epizodes()
+    {
+        return $this->hasMany('App\Epizod');
+    }
+
+    /**
      * Validation rules
      */
     public static $rules = array(

@@ -28,6 +28,7 @@ class Epizod extends Model implements SluggableInterface
         'producer',
         'running_time',
         'season_id',
+        'serial_id',
         'number'
     ];
 
@@ -41,6 +42,11 @@ class Epizod extends Model implements SluggableInterface
     {
         $this->numberValidation();
         return $this->belongsTo('App\Season');
+    }
+
+    public function serial()
+    {
+        return $this->belongsTo('App\Serial');
     }
 
 
