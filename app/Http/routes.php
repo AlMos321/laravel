@@ -14,6 +14,7 @@
 
 Route::get('/', 'SerialController@getSerials');
 Route::get('/serial/{slug}', 'SerialController@getSerialBySlug');
+Route::get('/serial/epizod/{slug}', 'SerialController@getEpizodBySlug');
 
 /*
 |--------------------------------------------------------------------------

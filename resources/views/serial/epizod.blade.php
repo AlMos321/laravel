@@ -46,33 +46,20 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">dd</div>
+                    <div class="panel-heading">Epizos - {{$epizod->name}}</div>
                     <div class="panel-body">
                         <div class="serial">
                             <div class="wind">
-                                <div class="wind-img" style='background-image: url("/uploads/serial/icon/{{$serial->images}}");'></div>
-                                <div class="wind-name">{{$serial->name}}</div>
+                                <div class="wind-img" style='background-image: url("/uploads/serial/icon/{{$epizod->images}}");'></div>
+                                <div class="wind-name"><b>Epizod name:</b>{{$epizod->name}}</div>
                             </div>
-                            <div class="description bg-info"><b>Description:</b> {{$serial->description}}</div>
+                            <div class="description bg-info"><b>Description:</b> {{$epizod->description}}</div>
+                            <div class="description bg-info"><b>Producer:</b> {{$epizod->producer}}</div>
+                            <div class="description bg-info"><b>Directed:</b> {{$epizod->directed}}</div>
+                            <div class="description bg-info"><b>Running time:</b> {{$epizod->running_time}}</div>
+                            <div class="description bg-info"><b>Date start:</b> {{$epizod->running_time}}</div>
                         </div>
-                            <hr>
-                        @foreach ($seasons as $season)
-                            <div class="wind">
-                                <div class="wind-name">Seazon {{$season->number}}</div>
-
-                                <?php if(isset($epizodes[$season->id])){ ?>
-
-                                    @foreach ($epizodes[$season->id] as $epizod)
-                                        <a href="epizod/{{$epizod->slug}}">
-                                            <div class="description bg-info">Epizod {{$epizod->id}}</div>
-                                        </a>
-                                    @endforeach
-
-                                <?php }?>
-
-                            </div>
-                            <br>
-                        @endforeach
+                        <hr>
                     </div>
                 </div>
             </div>

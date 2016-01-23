@@ -28,7 +28,7 @@ class Serial extends Model implements SluggableInterface
     ];
 
     /**
-     * Get the comments for the blog post.
+     * Get seasins for serial.
      */
     public function seasons()
     {

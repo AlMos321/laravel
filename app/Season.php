@@ -27,5 +27,12 @@ class Season extends Model implements SluggableInterface
         'save_to'    => 'slug',
     ];
 
+    /**
+     * Get epizodes for serial.
+     */
+    public function epizodes()
+    {
+        return $this->hasMany('App\Epizod');
+    }
 
 }
