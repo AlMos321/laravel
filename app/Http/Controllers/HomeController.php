@@ -7,6 +7,7 @@ use App\Serial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Validator;
 
 
 class HomeController extends Controller
@@ -70,7 +71,6 @@ class HomeController extends Controller
      */
     public function showEpizodes()
     {
-        //$serials = DB::select('select * from serials WHERE user_id = ?', [Auth::user()->id]);
         $serials = Serial::where('user_id', '=', Auth::user()->id)->paginate(10);
         return view('serial.index', ['serials' => $serials]);
     }
@@ -83,13 +83,26 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        /*$this->validate($request, [
             'name' => 'required|max:50',
             'description' => 'required',
+        ]);*/
+
+        $v = Validator::make($request->all(), [
+            'name' => 'required|max:50',
+            'description' => 'required|max:255',
         ]);
 
+        if ($v->fails())
+        {
+            return redirect()->back()->withErrors($v->errors());
+        }
+
+
+        /*$messages = $validator->messages();*/
+
         $slug = $request->input('slug');
-        if(!empty($slug)){
+        if (!empty($slug)) {
             $this->update($request);
             return redirect('/show/serial')->with('message', 'Thanks for update!');
         } else {
@@ -144,14 +157,15 @@ class HomeController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function deleteSerial($slug){
+    public function deleteSerial($slug)
+    {
         $serial = Serial::findBySlugOrFail($slug);
-        if (isset($serial) && $serial->user_id == Auth::user()->id){
-            if ($serial->delete()){
+        if (isset($serial) && $serial->user_id == Auth::user()->id) {
+            if ($serial->delete()) {
                 return redirect('/show/serial')->with('message', 'Serial delete!');
             }
         } else {
-                return redirect('/show/serial')->with('message', 'Serial no delete!');
+            return redirect('/show/serial')->with('message', 'Serial no delete!');
         }
     }
 }

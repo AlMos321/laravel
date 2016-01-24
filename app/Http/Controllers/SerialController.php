@@ -20,8 +20,6 @@ class SerialController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $this->middleware('author', ['only' => ['edit', 'update', 'delete']]);
-        $this->middleware('auth', ['only' => ['create', 'store', 'edit', 'update', 'delete', 'like']]);
     }
 
     /**
@@ -60,9 +58,7 @@ class SerialController extends Controller
         } else {
             abort(404);
         }
-
         $idSesons = [];
-
         if (isset($seasons)) {
             foreach ($seasons as $seson) {
                 $idSesons[] = $seson->id;
