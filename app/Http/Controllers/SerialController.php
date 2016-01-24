@@ -8,6 +8,7 @@ use App\Season;
 use App\Serial;
 use DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class SerialController extends Controller
 {
@@ -19,6 +20,8 @@ class SerialController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('author', ['only' => ['edit', 'update', 'delete']]);
+        $this->middleware('auth', ['only' => ['create', 'store', 'edit', 'update', 'delete', 'like']]);
     }
 
     /**

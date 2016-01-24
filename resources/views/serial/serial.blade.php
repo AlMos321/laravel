@@ -55,7 +55,15 @@
                             </div>
                             <div class="description bg-info"><b>Description:</b> {{$serial->description}}</div>
                         </div>
-                            <hr>
+                        <hr>
+                       {{-- @if (1 == Auth::check() && Auth::user()->id == 1)
+                        <div class="description">
+                            <a href="#">
+                                <button type="button" style="align-self: center" class="btn btn-danger">Delete</button>
+                            </a>
+                        </div>
+                        @endif
+                            <hr>--}}
                         @foreach ($seasons as $season)
                             <div class="wind">
                                 <div class="wind-name">Seazon {{$season->number}}</div>

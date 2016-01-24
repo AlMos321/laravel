@@ -35,12 +35,17 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
+    Route::get('/show/serial/', 'HomeController@showSerials');
+    Route::get('/create/serial', 'HomeController@createSerial');
+    Route::get('/update/serial/{slug}', 'HomeController@updateSerial');
+    Route::get('/delete/serial/{slug}', 'HomeController@deleteSerial');
+    Route::post('/post/create/', 'HomeController@store');
 
     // Authentication routes...
     Route::get('auth/login', 'Auth\AuthController@getLogin');
     Route::post('auth/login', 'Auth\AuthController@postLogin');
     Route::get('auth/logout', 'Auth\AuthController@getLogout');
-// Registration routes...
+    // Registration routes...
     Route::get('auth/register', 'Auth\AuthController@getRegister');
     Route::post('auth/register', 'Auth\AuthController@postRegister');
 });

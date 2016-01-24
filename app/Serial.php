@@ -19,7 +19,7 @@ class Serial extends Model implements SluggableInterface
      * @var array
      */
     protected $fillable = [
-        'name', 'country', 'production', 'producer', 'actors', 'description', 'images', 'released',
+        'name', 'country', 'production', 'producer', 'actors', 'description', 'images', 'released', 'user_id', 'id'
     ];
 
 

@@ -9,7 +9,7 @@
             position: relative;
             display: inline-block;
             margin-left: 25px;
-            margin-bottom: 5px;
+            margin-bottom: 30px;
             cursor: pointer;
         }
         .wind-img:hover{
@@ -42,11 +42,24 @@
                     <div class="panel-heading">Welcome - Serial</div>
                     <div class="panel-body">
                         <div class="row">
+                            @if(Session::has('message'))
+                                <p class="alert alert-info">{{ Session::get('message') }}</p>
+                            @endif
                         @foreach ($serials as $serial)
-                            <a href="serial/{{$serial->slug}}">
+                            <a href="/serial/{{$serial->slug}}">
                             <div class="wind">
                                 <div class="wind-img" style='background-image: url("/uploads/serial/icon/{{$serial->images}}");'></div>
                                 <div class="wind-name">{{$serial->name}}</div>
+                                @if (1 == Auth::check() && Auth::user()->id == 1)
+                                    <div class="description">
+                                        <a href="/delete/serial/{{$serial->slug}}">
+                                            <button type="button" style="align-self: center" class="btn btn-danger">Delete</button>
+                                        </a>
+                                        <a href="/update/serial/{{$serial->slug}}">
+                                            <button type="button" style="align-self: center" class="btn btn-primary">Edit...</button>
+                                        </a>
+                                    </div>
+                                @endif
                             </div>
                             </a>
                         @endforeach
