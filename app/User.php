@@ -32,4 +32,13 @@ class User extends Authenticatable
         'email' => 'required|email',
         'password' => 'required',
     );
+
+    /**
+     * Get user for serial.
+     */
+    public function serial()
+    {
+        return $this->hasMany('App\Serial');
+    }
+
 }

@@ -26,6 +26,7 @@ class CreateEpizodesTable extends Migration
             $table->integer('serial_id')->unsigned();
             $table->foreign('serial_id')->references('id')->on('serials')->onDelete('cascade');
             $table->integer('date_start');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

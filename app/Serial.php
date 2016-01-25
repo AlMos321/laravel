@@ -19,13 +19,23 @@ class Serial extends Model implements SluggableInterface
      * @var array
      */
     protected $fillable = [
-        'name', 'country', 'production', 'producer', 'actors', 'description', 'images', 'released', 'user_id', 'id'
+        'name',
+        'country',
+        'production',
+        'producer',
+        'actors',
+        'description',
+        'images',
+        'released',
+        'user_id',
+        'id',
+        'serial_id'
     ];
 
 
     protected $sluggable = [
         'build_from' => 'name',
-        'save_to'    => 'slug',
+        'save_to' => 'slug',
     ];
 
     /**
@@ -42,6 +52,11 @@ class Serial extends Model implements SluggableInterface
     public function epizodes()
     {
         return $this->hasMany('App\Epizod');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 
     /**

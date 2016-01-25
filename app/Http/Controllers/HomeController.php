@@ -83,10 +83,6 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        /*$this->validate($request, [
-            'name' => 'required|max:50',
-            'description' => 'required',
-        ]);*/
 
         $v = Validator::make($request->all(), [
             'name' => 'required|max:50',
@@ -168,4 +164,6 @@ class HomeController extends Controller
             return redirect('/show/serial')->with('message', 'Serial no delete!');
         }
     }
+
+
 }

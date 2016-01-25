@@ -41,6 +41,21 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/delete/serial/{slug}', 'HomeController@deleteSerial');
     Route::post('/post/create/', 'HomeController@store');
 
+    Route::get('/create/season', 'SeasonController@createSeason');
+    Route::post('/post/create/season', 'SeasonController@store');
+
+    Route::get('/create/epizod', 'EpizodController@createEpizod');
+    Route::post('/post/create/epizod', 'EpizodController@store');
+    Route::get('/get/seasons', 'EpizodController@getSeasons');
+
+    Route::get('/get/list/seasons', 'SeasonController@listSeasons');
+    Route::get('/update/season/{slug}', 'SeasonController@updateSeason');
+    Route::get('/delete/season/{slug}', 'SeasonController@deleteSeason');
+
+
+    Route::get('/get/list/epizodes', 'EpizodController@listEpizodes');
+    Route::get('/update/epizod/{slug}', 'EpizodController@updateEpizod');
+
     // Authentication routes...
     Route::get('auth/login', 'Auth\AuthController@getLogin');
     Route::post('auth/login', 'Auth\AuthController@postLogin');

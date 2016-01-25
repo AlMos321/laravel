@@ -6,6 +6,7 @@ use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 
 
 class Epizod extends Model implements SluggableInterface
@@ -29,7 +30,8 @@ class Epizod extends Model implements SluggableInterface
         'running_time',
         'season_id',
         'serial_id',
-        'number'
+        'number',
+        'user_id'
     ];
 
 
@@ -69,6 +71,16 @@ class Epizod extends Model implements SluggableInterface
         if (isset($_POST['season'])) {
             static::$rules['number'] = 'required|integer|unique:epizodes,number,NULL,id,season_id,' . $_POST['season'];
         }
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function($post)
+        {
+            $post->user_id = Auth::user()->id;
+        });
     }
 
 }

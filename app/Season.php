@@ -23,7 +23,8 @@ class Season extends Model implements SluggableInterface
         'date_start',
         'date_end',
         'description',
-        'serial_id'
+        'serial_id',
+        'number'
     ];
 
 

@@ -10,6 +10,9 @@ return [
         'id' => [
             'title' => '#'
         ],
+        'user_id' => [
+            'title' => 'User_id'
+        ],
         'name' => [
             'title' => 'Name'
         ],
@@ -45,6 +48,11 @@ return [
      * The editable fields
      */
     'edit_fields' => [
+        'user' => [
+            'type' => 'relationship',
+            'title' => 'User',
+            'name_field' => 'name',
+        ],
         'name' => [
             'type' => 'text',
             'title' => 'Name'
