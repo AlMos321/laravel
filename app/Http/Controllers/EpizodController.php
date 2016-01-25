@@ -35,6 +35,7 @@ class EpizodController extends Controller
     }
 
     /**
+     * View form for create new epizod.
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function createEpizod()
@@ -43,14 +44,6 @@ class EpizodController extends Controller
         return view('epizod.create', ['serials' => $serials]);
     }
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function showEpizod()
-    {
-        $serials = DB::table('serials')->select('id', 'name')->where('user_id', '=', Auth::user()->id)->get();
-        return view('epizod.create', ['serials' => $serials]);
-    }
 
     /**
      * api
@@ -147,6 +140,7 @@ class EpizodController extends Controller
     }
 
     /**
+     * View form fo update epizod
      * @param $slug
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
