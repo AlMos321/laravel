@@ -10,6 +10,9 @@ return [
         'id' => [
             'title' => '#'
         ],
+        'user_id' => [
+            'title' => 'User_id'
+        ],
         'name' => [
             'title' => 'Name'
         ],
@@ -39,12 +42,20 @@ return [
         'slug' => [
             'title' => 'slug'
         ],
+        'is_active' => [
+            'title' => 'slug'
+        ],
 
     ],
     /**
      * The editable fields
      */
     'edit_fields' => [
+        'user' => [
+            'type' => 'relationship',
+            'title' => 'User',
+            'name_field' => 'name',
+        ],
         'name' => [
             'type' => 'text',
             'title' => 'Name'
@@ -81,8 +92,12 @@ return [
             )
         ),
         'released' => [
-            'type' => 'text',
-            'title' => 'Released(year)',
+            'type' => 'date',
+            'title' => 'Released',
+        ],
+        'is_active' => [
+            'type' => 'bool',
+            'title' => 'Is Active'
         ],
     ],
     /**

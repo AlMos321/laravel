@@ -22,6 +22,9 @@ class CreateSerialsTable extends Migration
             $table->string('description');
             $table->string('images')->nullable();
             $table->string('released')->nullable();
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->boolean('is_active');
             $table->timestamps();
         });
     }

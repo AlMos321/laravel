@@ -4,7 +4,7 @@
 
     <style>
         .wind{
-            height: 160px;
+            height: 50px;
             width: 145px;
             position: relative;
             display: inline-block;
@@ -39,33 +39,27 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Welcome - Serial</div>
+                    <div class="panel-heading">List Seasons</div>
                     <div class="panel-body">
-                        <div class="row">
-                            @if(Session::has('message'))
-                                <p class="alert alert-info">{{ Session::get('message') }}</p>
-                            @endif
-                        @foreach ($serials as $serial)
-                            <a href="/serial/{{$serial->slug}}">
+                        @if(Session::has('message'))
+                            <p class="alert alert-info">{{ Session::get('message') }}</p>
+                        @endif
+                        @foreach($seasons as $season)
                             <div class="wind">
-                                <div class="wind-img" style='background-image: url("/uploads/serial/icon/{{$serial->images}}");'></div>
-                                <div class="wind-name">{{$serial->name}}</div>
+                                <div class="wind-name">Num: {{$season->number}}. Serial: {{$season->serial_id}}</div>
                                 @if (1 == Auth::check() && Auth::user()->id == 1)
                                     <div class="description">
-                                        <a href="/delete/serial/{{$serial->slug}}">
+                                        <a href="/delete/season/{{$season->slug}}">
                                             <button type="button" style="align-self: center" class="btn btn-danger">Delete</button>
                                         </a>
-                                        <a href="/update/serial/{{$serial->slug}}">
+                                        <a href="/update/season/{{$season->slug}}">
                                             <button type="button" style="align-self: center" class="btn btn-primary">Edit...</button>
                                         </a>
                                     </div>
                                 @endif
                             </div>
-                            </a>
                         @endforeach
-                        </div>
-                        {{$serials->render()}}
-                    </div>
+
                 </div>
             </div>
         </div>

@@ -16,6 +16,9 @@ return [
         'email' => [
             'title' => 'Email'
         ],
+        'is_admin' => [
+            'title' => 'Is admin'
+        ],
     ],
     /**
      * The editable fields
@@ -32,6 +35,10 @@ return [
         'password' => [
             'type' => 'password',
             'title' => 'Password',
+        ],
+        'is_admin' => [
+            'type' => 'bool',
+            'title' => 'Is admin'
         ],
     ],
     /**
