@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::get('/', 'SerialController@getSerials');
 Route::get('/serial/{slug}', 'SerialController@getSerialBySlug');
 Route::get('/serial/epizod/{slug}', 'SerialController@getEpizodBySlug');
@@ -55,6 +54,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/get/list/epizodes', 'EpizodController@listEpizodes');
     Route::get('/update/epizod/{slug}', 'EpizodController@updateEpizod');
+    Route::get('/delete/epizod/{slug}', 'EpizodController@deleteEpizod');
 
     // Authentication routes...
     Route::get('auth/login', 'Auth\AuthController@getLogin');

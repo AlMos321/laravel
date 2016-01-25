@@ -41,6 +41,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">List Seasons</div>
                     <div class="panel-body">
+                        @if(Session::has('message'))
+                            <p class="alert alert-info">{{ Session::get('message') }}</p>
+                        @endif
                         @foreach($seasons as $season)
                             <div class="wind">
                                 <div class="wind-name">Num: {{$season->number}}. Serial: {{$season->serial_id}}</div>

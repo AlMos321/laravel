@@ -64,7 +64,7 @@ class EpizodController extends Controller
 
 
     /**
-     * Create or update serial.
+     * Create or update epizod.
      *
      * @param  Request $request
      * @return Response
@@ -94,7 +94,7 @@ class EpizodController extends Controller
 
 
     /**
-     * Update serial
+     * Update epizod
      * @param Request $request
      */
     private function update(Request $request)
@@ -116,7 +116,7 @@ class EpizodController extends Controller
     }
 
     /**
-     * Create serial
+     * Create epizod
      * @param Request $request
      */
     private function create(Request $request)
@@ -157,9 +157,26 @@ class EpizodController extends Controller
             ->join('serials', 'serials.id', '=', 'epizodes.serial_id')
             ->join('seasons', 'seasons.id', '=', 'epizodes.season_id')
             ->where('epizodes.user_id', '=', Auth::user()->id)->get();
-        
+
         $serials = DB::table('serials')->select('id', 'name')->where('user_id', '=', Auth::user()->id)->get();
         return view('epizod.create', ['epizod' => $epizod[0], 'serials' => $serials]);
+    }
+
+    /**
+     * @param $slug
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function deleteEpizod($slug)
+    {
+        $epizod = Epizod::findBySlugOrFail($slug);
+        if (isset($epizod)) {
+            if ($epizod->delete()) {
+                return redirect('/get/list/epizodes')->with('message', 'Epizod delete!');
+            }
+        } else {
+            return redirect('/get/list/epizodes')->with('message', 'Epizod no delete!');
+        }
     }
 
 }

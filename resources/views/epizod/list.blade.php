@@ -30,12 +30,15 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">List Epizodes</div>
                     <div class="panel-body">
+                        @if(Session::has('message'))
+                            <p class="alert alert-info">{{ Session::get('message') }}</p>
+                        @endif
                         @foreach($epizodes as $epizod)
                             <div class="wind">
                                 <div class="wind-name">{{$epizod->name}}|Serial: {{$epizod->id}}</div>
                                 @if (1 == Auth::check() && Auth::user()->id == 1)
                                     <div class="description">
-                                        <a href="/delete/epizodes/{{$epizod->slug}}">
+                                        <a href="/delete/epizod/{{$epizod->slug}}">
                                             <button type="button" style="align-self: center" class="btn btn-danger">Delete</button>
                                         </a>
                                         <a href="/update/epizod/{{$epizod->slug}}">
