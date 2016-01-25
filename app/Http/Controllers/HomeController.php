@@ -109,7 +109,7 @@ class HomeController extends Controller
             'actors' => $request->input('actors'),
             'description' => $request->input('description'),
             'images' => $request->input('images'),
-            'released' => $request->input('released'),
+            'released' => '1994-01-25',
             'user_id' => Auth::user()->id,
         ]);
     }
@@ -128,7 +128,7 @@ class HomeController extends Controller
             'actors' => $request->input('actors'),
             'description' => $request->input('description'),
             'images' => $request->input('images'),
-            'released' => $request->input('released'),
+            'released' => '1994-01-25',
             'user_id' => Auth::user()->id,
         ]);
         $question->save();

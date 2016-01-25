@@ -153,7 +153,7 @@ class EpizodController extends Controller
             'seasons.number as season_number')
             ->join('serials', 'serials.id', '=', 'epizodes.serial_id')
             ->join('seasons', 'seasons.id', '=', 'epizodes.season_id')
-            ->where([['epizodes.user_id', '=', Auth::user()->id],[['serials.is_active', '=', '1']]])->get();
+            ->where([['epizodes.user_id', '=', Auth::user()->id],['serials.is_active', '=', '1']])->get();
 
         $serials = DB::table('serials')->select('id', 'name')->where('user_id', '=', Auth::user()->id)->get();
         return view('epizod.create', ['epizod' => $epizod[0], 'serials' => $serials]);
