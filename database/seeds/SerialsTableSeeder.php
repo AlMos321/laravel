@@ -50,5 +50,108 @@ class SerialsTableSeeder extends Seeder
             'slug' => str_random(10),
         ]);
 
+        DB::table('serials')->insert([
+            'name' => str_random(10),
+            'country' => str_random(10),
+            'production' => str_random(10),
+            'producer' => str_random(10),
+            'actors' => str_random(10),
+            'description' => str_random(50),
+            'user_id' => 1,
+            'images' => 'example.jpg',
+            'released' => '1994',
+            'slug' => str_random(10),
+        ]);
+
+        DB::table('serials')->insert([
+            'name' => str_random(10),
+            'country' => str_random(10),
+            'production' => str_random(10),
+            'producer' => str_random(10),
+            'actors' => str_random(10),
+            'description' => str_random(50),
+            'user_id' => 1,
+            'images' => 'example.jpg',
+            'released' => '1994',
+            'slug' => str_random(10),
+        ]);
+
+        DB::table('serials')->insert([
+            'name' => str_random(10),
+            'country' => str_random(10),
+            'production' => str_random(10),
+            'producer' => str_random(10),
+            'actors' => str_random(10),
+            'description' => str_random(50),
+            'user_id' => 1,
+            'images' => 'example.jpg',
+            'released' => '1994',
+            'slug' => str_random(10),
+        ]);
+
+        DB::table('serials')->insert([
+            'name' => str_random(10),
+            'country' => str_random(10),
+            'production' => str_random(10),
+            'producer' => str_random(10),
+            'actors' => str_random(10),
+            'description' => str_random(50),
+            'user_id' => 1,
+            'images' => 'example.jpg',
+            'released' => '1994',
+            'slug' => str_random(10),
+        ]);
+
+        DB::table('serials')->insert([
+            'name' => str_random(10),
+            'country' => str_random(10),
+            'production' => str_random(10),
+            'producer' => str_random(10),
+            'actors' => str_random(10),
+            'description' => str_random(50),
+            'user_id' => 1,
+            'images' => 'example.jpg',
+            'released' => '1994',
+            'slug' => str_random(10),
+        ]);
+
+        DB::table('serials')->insert([
+            'name' => str_random(10),
+            'country' => str_random(10),
+            'production' => str_random(10),
+            'producer' => str_random(10),
+            'actors' => str_random(10),
+            'description' => str_random(50),
+            'user_id' => 1,
+            'images' => 'example.jpg',
+            'released' => '1994',
+            'slug' => str_random(10),
+        ]);
+
+        DB::table('serials')->insert([
+            'name' => str_random(10),
+            'country' => str_random(10),
+            'production' => str_random(10),
+            'producer' => str_random(10),
+            'actors' => str_random(10),
+            'description' => str_random(50),
+            'user_id' => 1,
+            'images' => 'example.jpg',
+            'released' => '1994',
+            'slug' => str_random(10),
+        ]);
+
+        DB::table('serials')->insert([
+            'name' => str_random(10),
+            'country' => str_random(10),
+            'production' => str_random(10),
+            'producer' => str_random(10),
+            'actors' => str_random(10),
+            'description' => str_random(50),
+            'user_id' => 1,
+            'images' => 'example.jpg',
+            'released' => '1994',
+            'slug' => str_random(10),
+        ]);
     }
 }
