@@ -77,8 +77,7 @@ class Epizod extends Model implements SluggableInterface
     {
         parent::boot();
 
-        static::creating(function($post)
-        {
+        static::creating(function ($post) {
             $post->user_id = Auth::user()->id;
         });
     }
