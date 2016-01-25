@@ -33,13 +33,13 @@ class SerialController extends Controller
     }
 
     /**
-     * Show a list of all selials.
+     * Show a list of all serials.
      *
      * @return Response
      */
     public function getSerials()
     {
-        $serials = Serial::paginate(20);
+        $serials = Serial::where('is_active', '=', 1)->paginate(10);
         return view('serial.index', ['serials' => $serials]);
     }
 
@@ -51,7 +51,11 @@ class SerialController extends Controller
      */
     public function getSerialBySlug($slug)
     {
-        $serial = DB::select('select * from serials WHERE slug = ?', [$slug]);
+        $serial = DB::table('serials')->select()->where([
+            ['slug', '=', $slug],
+            ['is_active', '=', '1']
+        ])->get();
+
         if (isset($serial[0])) {
             $seasons = Serial::find($serial[0]->id)->seasons()->orderBy('number')->get();
             $serial = $serial[0];

@@ -42,6 +42,9 @@ return [
         'slug' => [
             'title' => 'slug'
         ],
+        'is_active' => [
+            'title' => 'slug'
+        ],
 
     ],
     /**
@@ -91,6 +94,10 @@ return [
         'released' => [
             'type' => 'date',
             'title' => 'Released',
+        ],
+        'is_active' => [
+            'type' => 'bool',
+            'title' => 'Is Active'
         ],
     ],
     /**

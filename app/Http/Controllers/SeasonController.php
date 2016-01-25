@@ -39,7 +39,10 @@ class SeasonController extends Controller
      */
     public function createSeason()
     {
-        $serials = DB::table('serials')->select('id', 'name')->where('user_id', '=', Auth::user()->id)->get();
+        $serials = DB::table('serials')->select('id', 'name')->where([
+            ['user_id', '=', Auth::user()->id],
+            ['is_active', '=', '1']
+        ])->get();
         return view('season.create', ['serials' => $serials]);
     }
 
@@ -48,14 +51,17 @@ class SeasonController extends Controller
      */
     public function showSeason()
     {
-        $serials = DB::table('serials')->select('id', 'name')->where('user_id', '=', Auth::user()->id)->get();
+        $serials = DB::table('serials')->select('id', 'name')->where([
+            ['user_id', '=', Auth::user()->id],
+            ['is_active', '=', '1']
+        ])->get();
         $season = DB::table('season')->where('serial_id', '=', [1])->get();
         return view('season.create', ['serials' => $serials]);
     }
 
 
     /**
-     * reate or update serial
+     * Create or update serial
      * @param Request $request
      * @return $this|\Illuminate\Http\RedirectResponse
      */
@@ -129,7 +135,10 @@ class SeasonController extends Controller
     public function listSeasons()
     {
         $massIds = [];
-        $usersSerialId = DB::table('serials')->select('id')->where('user_id', '=', Auth::user()->id)->get();
+        $usersSerialId = DB::table('serials')->select('id')->where([
+            ['user_id', '=', Auth::user()->id],
+            ['is_active', '=', '1']
+        ])->get();
         foreach ($usersSerialId as $rows) {
             foreach ($rows as $row) {
                 $massIds[] = $row;
@@ -146,7 +155,10 @@ class SeasonController extends Controller
     public function updateSeason($slug)
     {
         $season = DB::select('select * from seasons WHERE slug = ?', [$slug]);
-        $serials = DB::table('serials')->select('id', 'name')->where('user_id', '=', Auth::user()->id)->get();
+        $serials = DB::table('serials')->select('id', 'name')->where([
+            ['user_id', '=', Auth::user()->id],
+            ['is_active', '=', '1']
+        ])->get();
         return view('season.create', ['season' => $season[0], 'serials' => $serials]);
     }
 

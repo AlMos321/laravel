@@ -22,6 +22,7 @@ class SerialsTableSeeder extends Seeder
             'images' => 'example.jpg',
             'released' => '1994',
             'slug' => str_random(10),
+            'is_active' => 1
         ]);
 
         DB::table('serials')->insert([
@@ -35,6 +36,7 @@ class SerialsTableSeeder extends Seeder
             'images' => 'example.jpg',
             'released' => '1994',
             'slug' => str_random(10),
+            'is_active' => 1
         ]);
 
         DB::table('serials')->insert([
@@ -48,6 +50,7 @@ class SerialsTableSeeder extends Seeder
             'images' => 'example.jpg',
             'released' => '1994',
             'slug' => str_random(10),
+            'is_active' => 1
         ]);
 
         DB::table('serials')->insert([
@@ -61,6 +64,7 @@ class SerialsTableSeeder extends Seeder
             'images' => 'example.jpg',
             'released' => '1994',
             'slug' => str_random(10),
+            'is_active' => 1
         ]);
 
         DB::table('serials')->insert([
@@ -74,6 +78,7 @@ class SerialsTableSeeder extends Seeder
             'images' => 'example.jpg',
             'released' => '1994',
             'slug' => str_random(10),
+            'is_active' => 1
         ]);
 
         DB::table('serials')->insert([
@@ -87,6 +92,7 @@ class SerialsTableSeeder extends Seeder
             'images' => 'example.jpg',
             'released' => '1994',
             'slug' => str_random(10),
+            'is_active' => 1
         ]);
 
         DB::table('serials')->insert([
@@ -100,6 +106,7 @@ class SerialsTableSeeder extends Seeder
             'images' => 'example.jpg',
             'released' => '1994',
             'slug' => str_random(10),
+            'is_active' => 1
         ]);
 
         DB::table('serials')->insert([
@@ -113,6 +120,7 @@ class SerialsTableSeeder extends Seeder
             'images' => 'example.jpg',
             'released' => '1994',
             'slug' => str_random(10),
+            'is_active' => 1
         ]);
 
         DB::table('serials')->insert([
@@ -126,6 +134,7 @@ class SerialsTableSeeder extends Seeder
             'images' => 'example.jpg',
             'released' => '1994',
             'slug' => str_random(10),
+            'is_active' => 1
         ]);
 
         DB::table('serials')->insert([
@@ -139,6 +148,7 @@ class SerialsTableSeeder extends Seeder
             'images' => 'example.jpg',
             'released' => '1994',
             'slug' => str_random(10),
+            'is_active' => 1
         ]);
 
         DB::table('serials')->insert([
@@ -152,6 +162,7 @@ class SerialsTableSeeder extends Seeder
             'images' => 'example.jpg',
             'released' => '1994',
             'slug' => str_random(10),
+            'is_active' => 1
         ]);
     }
 }

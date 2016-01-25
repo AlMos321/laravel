@@ -60,20 +60,10 @@ class HomeController extends Controller
      */
     public function showSerials()
     {
-        $serials = Serial::where('user_id', '=', Auth::user()->id)->paginate(10);
+        $serials = Serial::where([['user_id', '=', Auth::user()->id], ['is_active', '=', '1']])->paginate(10);
         return view('serial.index', ['serials' => $serials]);
     }
 
-    /**
-     * Show epizodes
-     *
-     * @return Response
-     */
-    public function showEpizodes()
-    {
-        $serials = Serial::where('user_id', '=', Auth::user()->id)->paginate(10);
-        return view('serial.index', ['serials' => $serials]);
-    }
 
     /**
      * Create or update serial.
@@ -89,13 +79,10 @@ class HomeController extends Controller
             'description' => 'required|max:255',
         ]);
 
-        if ($v->fails())
-        {
+        if ($v->fails()) {
             return redirect()->back()->withErrors($v->errors());
         }
 
-
-        /*$messages = $validator->messages();*/
 
         $slug = $request->input('slug');
         if (!empty($slug)) {
