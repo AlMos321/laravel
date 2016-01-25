@@ -3,8 +3,6 @@ return [
     'title' => 'Epizod',
     'single' => 'Epizod',
     'model' => 'App\Epizod',
-
-
     /**
      * The display columns
      */
@@ -54,11 +52,6 @@ return [
      * The editable fields
      */
     'edit_fields' => [
-        'serial' => [
-            'type' => 'relationship',
-            'title' => 'Serila Name',
-            'name_field' => 'name',
-        ],
         'season' => [
             'type' => 'relationship',
             'title' => 'Season',
@@ -124,10 +117,5 @@ return [
             'title' => 'Season id',
         ],
     ],
-
-    /*'before_save' => function(&$data)
-    {
-        $data['user_id'] = 1;
-    },*/
 
 ];

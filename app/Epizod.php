@@ -7,6 +7,7 @@ use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 
 class Epizod extends Model implements SluggableInterface
@@ -78,6 +79,8 @@ class Epizod extends Model implements SluggableInterface
         parent::boot();
 
         static::creating(function ($post) {
+            $serial_id = DB::table('seasons')->select('serial_id')->where('id', '=', $post->season_id)->get();
+            $post->serial_id = $serial_id[0]->serial_id;
             $post->user_id = Auth::user()->id;
         });
     }
