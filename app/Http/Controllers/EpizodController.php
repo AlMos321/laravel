@@ -39,7 +39,6 @@ class EpizodController extends Controller
      */
     public function createEpizod()
     {
-        //$season = DB::table('season')->select('id', 'number')->where('user_id', '=', Auth::user()->id)->get();
         $serials = DB::table('serials')->select('id', 'name')->where('user_id', '=', Auth::user()->id)->get();
         return view('epizod.create', ['serials' => $serials]);
     }
@@ -50,7 +49,6 @@ class EpizodController extends Controller
     public function showEpizod()
     {
         $serials = DB::table('serials')->select('id', 'name')->where('user_id', '=', Auth::user()->id)->get();
-        $season = DB::table('season')->where('serial_id', '=', [1])->get();
         return view('epizod.create', ['serials' => $serials]);
     }
 
@@ -73,11 +71,9 @@ class EpizodController extends Controller
      */
     public function store(Request $request)
     {
-
         $v = Validator::make($request->all(), [
             'name' => 'required',
             'description' => 'required|max:255',
-            //'date_start' => 'required|date',
             'season_id' => 'required|integer',
             'serial_id' => 'required|integer',
         ]);
@@ -156,20 +152,13 @@ class EpizodController extends Controller
      */
     public function updateEpizod($slug)
     {
-        //$epizod = DB::select('select * from epizodes WHERE slug = ?', [$slug]);
-
-        //var_dump($epizod);
-
-        $epizod = DB::table('epizodes')->select('epizodes.*', 'serials.name as serial_name', 'seasons.number as season_number')
+        $epizod = DB::table('epizodes')->select('epizodes.*', 'serials.name as serial_name',
+            'seasons.number as season_number')
             ->join('serials', 'serials.id', '=', 'epizodes.serial_id')
             ->join('seasons', 'seasons.id', '=', 'epizodes.season_id')
             ->where('epizodes.user_id', '=', Auth::user()->id)->get();
-
-        var_dump($epizod);
+        
         $serials = DB::table('serials')->select('id', 'name')->where('user_id', '=', Auth::user()->id)->get();
-        /*$season = DB::select('select * from seasons WHERE slug = ?', [$slug]);
-        $serials = DB::table('serials')->select('id', 'name')->where('user_id', '=', Auth::user()->id)->get();
-        return view('season.create', ['season' => $season[0], 'serials' => $serials]);*/
         return view('epizod.create', ['epizod' => $epizod[0], 'serials' => $serials]);
     }
 
